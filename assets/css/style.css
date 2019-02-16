@@ -1,0 +1,26 @@
+body{
+    color: white;
+    /* background-color: black; */
+    /* background: url("../images/bitcoinbg1.jpg"); */
+    background-color: black;
+
+}
+
+#start{
+    font-size: 20px;
+}
+
+.answers-dom:hover{
+background-color: aqua; 
+}
+
+/* <h1>Crystal Collector</h1>
+<div id="info">Game info here</div>
+<div id="start-number">start-number</div>
+<div id="wins">wins</div>
+<div id="losses">losses</div>
+<div class="coin" id="coin1">coin1</div>
+<div class="coin" id="coin2">coin2</div>
+<div class="coin" id="coin3">coin1</div>
+<div class="coin" id="coin4">coin1</div>
+<div id="total-score">total-score></div> */
