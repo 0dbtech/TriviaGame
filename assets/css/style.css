@@ -8,7 +8,8 @@ body{
 }
 
 #gameTitle{
-    font-size: 500%;
+    font-size: 300%;
+    margin-top: 15px;
 }
 
 #start{
