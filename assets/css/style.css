@@ -1,9 +1,14 @@
 body{
     color: white;
     /* background-color: black; */
-    /* background: url("../images/bitcoinbg1.jpg"); */
-    background-color: black;
+    background: url("../images/LIC-night.JPG");
+    background-size: 100%;
+   
 
+}
+
+#gameTitle{
+    font-size: 500%;
 }
 
 #start{
@@ -11,16 +16,11 @@ body{
 }
 
 .answers-dom:hover{
-background-color: aqua; 
+background-color: rgb(12, 77, 135);
+
 }
 
-/* <h1>Crystal Collector</h1>
-<div id="info">Game info here</div>
-<div id="start-number">start-number</div>
-<div id="wins">wins</div>
-<div id="losses">losses</div>
-<div class="coin" id="coin1">coin1</div>
-<div class="coin" id="coin2">coin2</div>
-<div class="coin" id="coin3">coin1</div>
-<div class="coin" id="coin4">coin1</div>
-<div id="total-score">total-score></div> */
+/* .trivia-dom{
+opacity: 80%;
+} */
+
