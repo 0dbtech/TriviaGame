@@ -3,8 +3,6 @@ body{
     /* background-color: black; */
     background: url("../images/LIC-night.JPG");
     background-size: 100%;
-   
-
 }
 
 #gameTitle{
@@ -18,10 +16,5 @@ body{
 
 .answers-dom:hover{
 background-color: rgb(12, 77, 135);
-
 }
-
-/* .trivia-dom{
-opacity: 80%;
-} */
 

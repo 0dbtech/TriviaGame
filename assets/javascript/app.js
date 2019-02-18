@@ -29,8 +29,7 @@ var Q2 = {
       correctAnswer: function(){
             return this.answer4;
       },
-      //responsive off
-      gif:'',
+      gif:'<iframe src="https://giphy.com/embed/C1yJhyUOIwTYs" width="480" height="271" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/sky-new-york-america-C1yJhyUOIwTYs">via GIPHY</a></p>',
 
 };
 
@@ -43,7 +42,6 @@ var Q3 = {
       correctAnswer: function(){
             return this.answer4;
       },
-       //responsive off
        gif:'<iframe src="https://giphy.com/embed/3oEdv9pgtUVVYdpaY8" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/wnyc-nyc-subway-rat-3oEdv9pgtUVVYdpaY8">via GIPHY</a></p>',
 
 };
@@ -57,7 +55,6 @@ var Q4 = {
       correctAnswer: function(){
             return this.answer2;
       },
-       //responsive off
        gif:'<iframe src="https://giphy.com/embed/26gsiCIKW7ANEmxKE" width="480" height="244" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/car-oprah-winfrey-26gsiCIKW7ANEmxKE">via GIPHY</a></p>',
 };
 
@@ -70,7 +67,6 @@ var Q5 = {
       correctAnswer: function(){
             return this.answer4;
       },
-       //responsive off
        gif:'<iframe src="https://giphy.com/embed/141xGebUNJWiGI" width="480" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/thread-gold-jamaica-141xGebUNJWiGI">via GIPHY</a></p>',
 };
 
@@ -83,12 +79,11 @@ var Q6 = {
       correctAnswer: function(){
             return this.answer1;
       },
-       //responsive off
-       gif:'',
+       gif:'<iframe src="https://giphy.com/embed/PmEQpCs0xSpC8" width="480" height="319" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/brooklyn-bridge-evening-PmEQpCs0xSpC8">via GIPHY</a></p>',
 };
 
 var Q7 = {
-      question:"Which genre of music had its origins in the Bronx, NYC?",
+      question:"Which genre of music originated in the Bronx?",
       answer1:"Disco",
       answer2:"Hip Hop",
       answer3:"Jazz",
@@ -96,15 +91,11 @@ var Q7 = {
       correctAnswer: function(){
             return this.answer2;
       },
-       //responsive off
        gif:'<iframe src="https://giphy.com/embed/d77o7i3tHnKda" width="480" height="324" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/dj-kitty-cat-d77o7i3tHnKda">via GIPHY</a></p>',
 };
-
-
-
 //Question Objects END
 
-//GLOBAL variables
+//GLOBAL variables except timer
 //array for question objects
 var questionsArray = [Q1,Q2,Q3,Q4,Q5,Q6,Q7];
       console.log("testing questions array " + questionsArray[0].question);
@@ -228,25 +219,20 @@ function unAnswered(){
             $('#timeup-dom').show();
             runTimer2();
             unAnsweredCount++;
+
       return;
 }      
 
 
 
 function nextQuestion(){
-     
             iQuestionsArray++;
             console.log("iQuestionsArray value is " + iQuestionsArray);
-
-               
-
             currentQuestion = questionsArray[iQuestionsArray];
             console.log("Next Question is " + currentQuestion.question);
             console.log("checking value at game end " + iQuestionsArray);
-            
             loadQuestion();
-      
-            
+
       return;
       }
 
@@ -257,11 +243,9 @@ function checkAnswer(){
       //PAUSE TIMER 1
       if (selectedAnswer === currentQuestion.correctAnswer()){
             correctAnswer()
-      
       }
       else {
             wrongAnswer();
-      
       }
       // runTimer2();
       return;
@@ -279,39 +263,30 @@ function loadQuestion (){
             //populate current question elements
             $('.trivia-dom').show();
             $('#question-dom').html("<h2>" + currentQuestion.question + "</h2>");
-
             $('#answer1-dom').attr('data-answer', currentQuestion.answer1);
             $('#answer1-dom').html("<h2>" + currentQuestion.answer1 + "</h2>");
-
             $('#answer2-dom').attr('data-answer', currentQuestion.answer2);
             $('#answer2-dom').html("<h2>" + currentQuestion.answer2 + "</h2>");
-
             $('#answer3-dom').attr('data-answer', currentQuestion.answer3);
             $('#answer3-dom').html("<h2>" + currentQuestion.answer3 + "</h2>");
-
             $('#answer4-dom').attr('data-answer', currentQuestion.answer4);
             $('#answer4-dom').html("<h2>" + currentQuestion.answer4 + "</h2>");
-
             //start clock
             runTimer();
-
             //test scores
-
             console.log("correctCount: " + correctCount);
             console.log("wrongCount: " + wrongCount);
             console.log("unAnsweredCount: " + unAnsweredCount);
             console.log("current question is " + currentQuestion.question);
     
-    return; 
+      return; 
 //END loadQuestion    
 }
 
 
 //TIMER START////////////
 
-    //  Interval Demonstration
-    //  Set our number counter to 100.
-//enter time     
+//enter time in sec     
 var timerNumber = 30;
 
 
@@ -319,153 +294,93 @@ var timerNumber = 30;
     //  the "run" function
 var intervalId;
 
-    //  When the stop button gets clicked, run the stop function.
-            //     $("#stop").on("click", stop);
-
-    //  When the resume button gets clicked, execute the run function.
-            //     $("#resume").on("click", run);
-
-    //  The run function sets an interval
-    //  that runs the decrement function once a second.
-    //  *****BUG FIX******** 
     //  Clearing the intervalId prior to setting our new intervalId will not allow multiple instances.
-    function runTimer() {
-      clearInterval(intervalId);
-      intervalId = setInterval(decrement, 1000);
+function runTimer() {
+            clearInterval(intervalId);
+            intervalId = setInterval(decrement, 1000);
 //prevent negative counter
 //enter time again     
-     timerNumber = 30;
+            timerNumber = 30;
+            }
 
-
-    }
-
-    //Between questions timer
-    function runTimer2() {
-      timerNumber = 6;
-      clearInterval(intervalId);
-      intervalId = setInterval(decrement2, 1000);
+//Between questions timer
+function runTimer2() {
 //prevent negative counter
-//enter time again     
-    
-
-
-    }    
+//enter time again      
+            timerNumber = 6;
+            clearInterval(intervalId);
+            intervalId = setInterval(decrement2, 1000);
+            }    
 
 //DECREMENT Question
-    //  The decrement function.
-    function decrement() {
+//  The decrement function.
+function decrement() {
 
       //  Decrease number by one.
-      timerNumber--;
+            timerNumber--;
 
       //  Show the number in the #timer-dom tag.
-      $("#timer-dom").html("<h2>Time remaining:  " + timerNumber + "</h2>");
-
+            $("#timer-dom").html("<h2>Time remaining:  " + timerNumber + "</h2>");
 
       //  Once number hits zero...
       if (timerNumber === 0) {
 
-        //  ...run the stop function.
-        stop();
-
-        //  Alert the user that time is up.
-
-////ADD answer select functions here        
-      //   alert("Time Up!");
+      //  ...run the stop function.
+            stop();
 
 //test score updates
-      //   correctAnswer();
-      //   wrongAnswer();
-      //   unAnswered();
-        unAnswered();
-      //   loadQuestion();
+            unAnswered();
 
-        //Next question
-      //   loadQuestion();
+            }
+
       }
-    }
 
 //DECREMENT 2 Between Questions
-    //  The decrement function.
-    function decrement2() {
+function decrement2() {
 
       //  Decrease number by one.
-      timerNumber--;
-
-      // //  Show the number in the #timer-dom tag.
-      // $("#timer-dom").html("<h2>Time remaining:  " + timerNumber + "</h2>");
-
+            timerNumber--;
 
       //  Once number hits zero...
       if (timerNumber === 0) {
 
-        //  ...run the stop function.
-        stop();
+      //  ...run the stop function.
+      stop();
 
-        //  Alert the user that time is up.
-
-////ADD answer select functions here        
-      //   alert("Time Up!");
-
-//test score updates
-      //   correctAnswer();
-      //   wrongAnswer();
-      //   unAnswered();
       isGameOver();        
-      // nextQuestion();
-      //   loadQuestion();
-
-        //Next question
-      //   loadQuestion();
+     
+            }
       }
-    }
 
-    //  The stop function
-    function stop() {
 
-      //  Clears our intervalId
-      //  We just pass the name of the interval
-      //  to the clearInterval function.
-      clearInterval(intervalId);
-//unanswered?      
-    }
-
-  
+function stop() {
+            clearInterval(intervalId);
+    
+      }
 
 //TIMER END////////
 
-
 /////////////////////////////////////////////////////      
-//PAGE LOAD
+//PAGE LOAD FUNCTIONS
 pageLoad();
 
 // Click events
 $("#start").on("click", function() {
-      
-      startGame();
-      
-      return;
-     });
-
-$("#restart").on("click", function() {
-      
-      pageLoad();
-      
-      return;
-     });     
-
-$(".answers-dom").on("click", function() {
-      selectedAnswer = ($(this).attr("data-answer"));
-      // coinValue = parseInt(coinValue);
-      // counter += coinValue;
-      // console.log("coin value is " + coinValue );
-      // scoreCheck();  
-      console.log("You selected " + selectedAnswer);
-      checkAnswer();
+            startGame();
       return;
       });
 
+$("#restart").on("click", function() {
+            pageLoad();
+      return;
+      });     
 
+$(".answers-dom").on("click", function() {
+      selectedAnswer = ($(this).attr("data-answer"));
+            console.log("You selected " + selectedAnswer);
+            checkAnswer();
+      return;
+      });
 
 // DOCUMENT READY END
 });
